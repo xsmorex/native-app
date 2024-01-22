@@ -8,6 +8,22 @@
       "expo-router"
     ],
     "name": "native",
-    "slug": "native"
+    "slug": "native",
+    "extra": {
+      "router": {
+        "origin": false
+      },
+      "eas": {
+        "projectId": "6561c826-85db-4ac2-a06f-d86a0a01d208"
+      }
+    },
+    "runtimeVersion": {
+      "policy": "appVersion"
+    },
+    "updates": {
+      "url": "https://u.expo.dev/6561c826-85db-4ac2-a06f-d86a0a01d208"
+    },
+    "android": {},
+    "ios": {}
   }
 }
