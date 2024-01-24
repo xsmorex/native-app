@@ -3,13 +3,13 @@ import { View, Text, TouchableOpacity, Image } from "react-native";
 import styles from "./nearbyjobcard.style";
 import { checkImageURL } from "../../../../utils";
 
-const NearbyJobCard = ({ job, handleNavigate }) => {
+const NearbyJobCard = ({ photo, handleNavigate }) => {
   return (
     <TouchableOpacity style={styles.container} onPress={handleNavigate}>
       <TouchableOpacity style={styles.logoContainer}>
         <Image
           source={{
-            uri: job.employer_logo
+            uri: photo.url
           }}
           resizeMode='contain'
           style={styles.logImage}
@@ -18,10 +18,10 @@ const NearbyJobCard = ({ job, handleNavigate }) => {
 
       <View style={styles.textContainer}>
         <Text style={styles.jobName} numberOfLines={1}>
-          {job?.job_title}
+          {photo?.url}
         </Text>
 
-        <Text style={styles.jobType}>{job?.job_employment_type}</Text>
+        
       </View>
     </TouchableOpacity>
   );

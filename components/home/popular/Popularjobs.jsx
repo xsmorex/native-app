@@ -6,15 +6,15 @@ import styles from './popularjobs.style'
 import { COLORS, SIZES } from '../../../constants'
 import PopularJobCard from "../../common/cards/popular/PopularJobCard";
 
-import useFetch from '../../../hook/useFetch';
+import useFetchApi from '../../../hook/useFetchApi';
 
 
 const Popularjobs = () => {
   const router = useRouter();
 
-  const { data, isLoading, error } = useFetch('search', { query: 'React developer', num_pages: 1 });
+  const { data, isLoading, error } = useFetchApi();
 
-  console.log(data)
+  //console.log(data)
 
   const [selectedJob, setSelectedJob] = useState();
 
@@ -27,7 +27,7 @@ const Popularjobs = () => {
   return (
     <View style={styles.container}>
       <View style={styles.header}>
-        <Text style={styles.headerTitle}>Popular jobs</Text>
+        <Text style={styles.headerTitle}>Popular photos</Text>
         <TouchableOpacity>
           <Text style={styles.headerBtn}>Show all</Text>
         </TouchableOpacity>
@@ -48,7 +48,7 @@ const Popularjobs = () => {
                 handleCardPress={handleCardPress}
               />
             )}
-            keyExtractor={item => item?.job_id}
+            keyExtractor={item => item?.id}
             contentContainerStyle={{ columnGap: SIZES.medium }}
             horizontal
           />

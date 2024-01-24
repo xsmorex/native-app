@@ -4,20 +4,16 @@ import { RAPID_API_KEY } from '@env';
 
 const rapidApiKey = process.env.RAPID_API_KEY;
 
-const useFetch = (endpoint, query) => {
+const useFetchApi = () => {
   const [data, setData] = useState([]);
   const [isLoading, setIsLoading] = useState(false);
   const [error, setError] = useState(null);
 
-
   const options = {
     method: 'GET',
-    url: `https://jsearch.p.rapidapi.com/${endpoint}`,
-    headers: {
-      'X-RapidAPI-Key': rapidApiKey,
-      'X-RapidAPI-Host': 'jsearch.p.rapidapi.com'
-    },
-    params: { ...query }
+    url: `https://api.slingacademy.com/v1/sample-data/photos`,
+    headers: {},
+    params: {}
   };
 
   const fetchData = async () => {
@@ -25,12 +21,13 @@ const useFetch = (endpoint, query) => {
 
     try {
       const response = await axios.request(options);
+      setData(response.data.photos);
 
-      setData(response.data.data);
+      //console.log(('test'),response.data.photos)
       setIsLoading(false);
     } catch (error) {
       setError(error);
-      console.log(error)
+      
       alert('There is an error')
     } finally {
       setIsLoading(false);
@@ -45,10 +42,10 @@ const useFetch = (endpoint, query) => {
     setIsLoading(true);
     fetchData();
   };
-
+  //console.log()
   return { data, isLoading, error, refetch };
 
 }
 
-export default useFetch;
+export default useFetchApi;
 
