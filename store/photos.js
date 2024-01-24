@@ -1,20 +1,19 @@
-import { types, getRoot, destroy, flow, applySnapshot } from "mobx-state-tree";
-
+import { types } from "mobx-state-tree";
+import axios from 'axios'; // Import Axios
 
 const Photo = types
   .model({
-    "url": types.number,
-    "user": types.number,
-    "title": types.string,
-    "id": types.identifier,
-    "description": types.string
-  })
+    url: types.number,
+    user: types.number,
+    title: types.string,
+    id: types.identifier,
+    description: types.string
+  });
 
 export const Photos = types
   .model({
     photos: types.array(Photo),
     isLoading: false,
-    //filter: types.optional(filterType, SHOW_ALL)
   })
   .volatile((self) => ({
     error: undefined,
@@ -25,26 +24,23 @@ export const Photos = types
     },
     loadPhotos: async () => {
       try {
-        //fetch data
-        const response = await axios.request(options);
+        // Fetch data
+        const response = await axios.request(options); // Assuming options is defined
         self.isLoading = true;
-        //set data inside Mobx
-        self.photos.set(response.data.photos);
+        // Set data inside Mobx
+        self.photos.replace(response.data.photos); // Use replace for arrays
         self.isLoading = false;
-      }
-      catch (error) {
+      } catch (error) {
         self.setError(error);
       }
     },
     setLoading: (loading) => {
-      self.isLoading;
+      self.isLoading = loading; // Corrected to set self.isLoading
     },
-
   }))
-  //getter
-  .views((self) => ({
-    get photos() {
-      return self.photos
-    }
-  })
-  );
+  // .views((self) => ({
+  //   get photosArray() {
+  //     return self.photos.slice(); // Return a shallow copy of the array
+  //   },
+  // }
+  // ));
