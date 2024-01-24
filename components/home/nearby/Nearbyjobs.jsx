@@ -17,7 +17,7 @@ const Nearbyjobs = () => {
   return (
     <View style={styles.container}>
       <View style={styles.header}>
-        <Text style={styles.headerTitle}>Photos</Text>
+        <Text style={styles.headerTitle}>Nearby photos</Text>
         <TouchableOpacity>
           <Text style={styles.headerBtn}>Show all</Text>
         </TouchableOpacity>

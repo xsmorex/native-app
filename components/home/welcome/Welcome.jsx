@@ -19,7 +19,7 @@ const Welcome = () => {
     <View>
       <View style={styles.container}>
         <Text style={styles.userName}>Hello Annie</Text>
-        <Text style={styles.welcomeMessage}>Find your perfect job</Text>
+        <Text style={styles.welcomeMessage}>Here's your photo feed</Text>
       </View>
 
       <View style={styles.searchContainer}>
@@ -39,25 +39,6 @@ const Welcome = () => {
             style={styles.searchBtnImage}
           />
         </TouchableOpacity>
-      </View>
-      <View style={styles.tabsContainer}>
-      <FlatList
-          data={jobTypes}
-          renderItem={({ item }) => (
-            <TouchableOpacity
-              style={styles.tab(activeJobType, item)}
-              onPress={() => {
-                setActiveJobType(item);
-                router.push(`/search/${item}`);
-              }}
-            >
-              <Text style={styles.tabText(activeJobType, item)}>{item}</Text>
-            </TouchableOpacity>
-          )}
-          keyExtractor={(item) => item}
-          contentContainerStyle={{ columnGap: SIZES.small }}
-          horizontal
-        />
       </View>
     </View>
   )

@@ -22,14 +22,14 @@ const PopularJobCard = ({ item, selectedJob, handleCardPress }) => {
         />
       </TouchableOpacity>
       <Text style={styles.companyName} numberOfLines={1}>
-        {item.employer_name}
+        {item.description}
       </Text>
       <View style={styles.infoContainer}>
         <Text style={styles.jobName(selectedJob, item)} numberOfLines={1}>
-          {item.job_title}
+          {item.title}
         </Text>
         <Text style={styles.location}>
-          {item.job_country}
+          {item.user}
         </Text>
       </View>
     </TouchableOpacity>
