@@ -1,24 +1,14 @@
-import { types } from 'mobx-state-tree'
-
+import { types, getRoot, destroy, flow, applySnapshot } from "mobx-state-tree";
 
 
 const Photo = types
   .model({
-
+    "url": types.number,
     "user": types.number,
     "title": types.string,
-    "id": types.number,
+    "id": types.identifier,
     "description": types.string
-
   })
-  .actions((self) => ({
-    remove() {
-      getRoot(self).removeTodo(self)
-    },
-    edit() {
-    }
-  }))
-
 
 export const Photos = types
   .model({
@@ -39,7 +29,7 @@ export const Photos = types
         const response = await axios.request(options);
         self.isLoading = true;
         //set data inside Mobx
-        self.photos.put(response.data.photos);
+        self.photos.set(response.data.photos);
         self.isLoading = false;
       }
       catch (error) {
@@ -49,6 +39,7 @@ export const Photos = types
     setLoading: (loading) => {
       self.isLoading;
     },
+
   }))
   //getter
   .views((self) => ({

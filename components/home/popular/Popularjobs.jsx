@@ -1,26 +1,21 @@
-import { useState } from 'react'
 import { View, Text, TouchableOpacity, FlatList, ActivityIndicator } from 'react-native'
 import { useRouter } from 'expo-router';
+import { Photos } from '../../../store/photos';
+import { observer } from 'mobx-react';
 
 import styles from './popularjobs.style'
 import { COLORS, SIZES } from '../../../constants'
 import PopularJobCard from "../../common/cards/popular/PopularJobCard";
 
-import useFetchApi from '../../../hook/useFetchApi';
-
 
 const Popularjobs = () => {
   const router = useRouter();
-
-  const { data, isLoading, error } = useFetchApi();
-
-  //console.log(data)
-
-  const [selectedJob, setSelectedJob] = useState();
+  const model = Photos.create()
+  //model.loadPhotos()
 
   const handleCardPress = (item) => {
-    router.push(`/job-details/${item.job_id}`);
-    setSelectedJob(item.job_id);
+    router.push(`/job-details/${item.id}`);
+    setSelectedJob(item.id);
   };
 
 
@@ -34,13 +29,14 @@ const Popularjobs = () => {
       </View>
 
       <View style={styles.cardsContainer}>
-        {isLoading ? (
+        {model.isLoading ? (
           <ActivityIndicator size='large' colors={COLORS.primary} />
-        ) : error ? (
+        ) : model.error ? (
           <Text>Something went wrong</Text>
         ) : (
           <FlatList
-            data={data}
+            
+            data={model.photos}
             renderItem={({ item }) => (
               <PopularJobCard
                 item={item}
