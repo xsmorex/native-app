@@ -3,12 +3,12 @@ import { useRouter } from 'expo-router';
 import { Photos } from '../../../store/photos';
 import { observer } from 'mobx-react';
 
-import styles from './popularjobs.style'
+import styles from './photosTimeline.style'
 import { COLORS, SIZES } from '../../../constants'
-import PopularJobCard from "../../common/cards/popular/PopularJobCard";
+import PhotoCard from "../../common/cards/photos/PhotoCard";
 
 
-const Popularjobs = () => {
+const PhotosTimeline = () => {
   const router = useRouter();
   const model = Photos.create()
   //model.loadPhotos()
@@ -22,7 +22,7 @@ const Popularjobs = () => {
   return (
     <View style={styles.container}>
       <View style={styles.header}>
-        <Text style={styles.headerTitle}>Popular photos</Text>
+        <Text style={styles.headerTitle}>Timeline photos</Text>
         <TouchableOpacity>
           <Text style={styles.headerBtn}>Show all</Text>
         </TouchableOpacity>
@@ -38,7 +38,7 @@ const Popularjobs = () => {
             
             data={model.photos}
             renderItem={({ item }) => (
-              <PopularJobCard
+              <PhotoCard
                 item={item}
                 selectedJob={selectedJob}
                 handleCardPress={handleCardPress}
@@ -54,4 +54,4 @@ const Popularjobs = () => {
   )
 }
 
-export default Popularjobs
+export default PhotosTimeline

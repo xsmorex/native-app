@@ -3,7 +3,9 @@ import { View, ScrollView, SafeAreaView, Text } from 'react-native';
 import { Stack, useRouter } from 'expo-router';
 
 import { COLORS, icons, images, SIZES } from '../constants';
-import { Nearbyjobs, Popularjobs, ScreenHeaderBtn, Welcome } from '../components';
+import { VideosTimeline, PhotosTimeline, ScreenHeaderBtn, Welcome } from '../components';
+import PhotosTimeline from '../components/home/photosTimeline/PhotosTimeline';
+import VideosTimeline from '../components/home/videosTimeline/VideosTimeline';
 
 const Home = () => {
 
@@ -22,13 +24,13 @@ const Home = () => {
             <ScreenHeaderBtn iconUrl={images.profile} dimension='100%' />
           ),
           headerTitle: "",
-        }} 
+        }}
       />
       <ScrollView showsVerticalScrollIndicator={false}>
-        <View style={{ flex:1, padding: SIZES.medium}}>
+        <View style={{ flex: 1, padding: SIZES.medium }}>
           <Welcome />
-          <Popularjobs />
-          <Nearbyjobs />
+          <PhotosTimeline />
+          <VideosTimeline />
         </View>
       </ScrollView>
     </SafeAreaView>

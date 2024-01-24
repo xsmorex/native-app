@@ -1,9 +1,9 @@
 import { View, Text, TouchableOpacity, Image } from "react-native";
 
-import styles from "./nearbyjobcard.style";
+import styles from "./videocard.style";
 import { checkImageURL } from "../../../../utils";
 
-const NearbyJobCard = ({ photo, handleNavigate }) => {
+const VideoCard = ({ photo, handleNavigate }) => {
   return (
     <TouchableOpacity style={styles.container} onPress={handleNavigate}>
       <TouchableOpacity style={styles.logoContainer}>
@@ -27,4 +27,4 @@ const NearbyJobCard = ({ photo, handleNavigate }) => {
   );
 };
 
-export default NearbyJobCard;
+export default VideoCard;
