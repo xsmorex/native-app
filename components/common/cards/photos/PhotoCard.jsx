@@ -9,7 +9,7 @@ const PhotoCard = ({ item, handleCardPress }) => {
   return (
     <TouchableOpacity
       style={styles.container(item)}
-      onPress={() => handleCardPress(item)}
+      //onPress={() => handleCardPress(item)}
     >
 
       <TouchableOpacity style={styles.logoContainer(item)}>

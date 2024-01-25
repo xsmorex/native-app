@@ -10,7 +10,6 @@ const options = {
   params: {},
 };
 
-
 const Photo = types.model("Photo", {
   url: types.string,
   user: types.number,
@@ -68,9 +67,3 @@ export const Photos = types
     },
   }));
 
-// .views((self) => ({
-//   get photosArray() {
-//     return self.photos.slice(); // Return a shallow copy of the array
-//   },
-// }
-// ));

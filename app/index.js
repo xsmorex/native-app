@@ -7,12 +7,14 @@ import { ScreenHeaderBtn, Welcome } from '../components';
 import PhotosTimeline from '../components/home/photosTimeline/PhotosTimeline';
 import VideosTimeline from '../components/home/videosTimeline/VideosTimeline';
 import { Photos } from '../store/photos';
+import { Videos } from '../store/videos';
 import { Provider } from 'mobx-react';
 
 const Home = () => {
 
   const router = useRouter();
   const photos = Photos.create()
+  const videos = Videos.create()
 
   return (
     <SafeAreaView style={{ flex: 1, backgroundColor: COLORS.lightWhite }}>

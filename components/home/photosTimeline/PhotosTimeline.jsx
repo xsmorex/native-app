@@ -9,7 +9,6 @@ import PhotoCard from "../../common/cards/photos/PhotoCard";
 
 const PhotosTimeline = inject("photos")(observer(({photos:model}) => {
   const router = useRouter();
-  const models = Photos.create()
 
   return (
     <View style={styles.container}>
