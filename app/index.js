@@ -3,7 +3,7 @@ import { View, ScrollView, SafeAreaView, Text } from 'react-native';
 import { Stack, useRouter } from 'expo-router';
 
 import { COLORS, icons, images, SIZES } from '../constants';
-import { VideosTimeline, PhotosTimeline, ScreenHeaderBtn, Welcome } from '../components';
+import { ScreenHeaderBtn, Welcome } from '../components';
 import PhotosTimeline from '../components/home/photosTimeline/PhotosTimeline';
 import VideosTimeline from '../components/home/videosTimeline/VideosTimeline';
 

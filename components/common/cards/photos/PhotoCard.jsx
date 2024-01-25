@@ -1,11 +1,11 @@
 import React from 'react'
 import { View, Text, TouchableOpacity, Image } from 'react-native'
 
-import styles from './photoCard.style'
+import styles from './photocard.style'
 
 import { checkImageURL } from "../../../../utils";
 
-const PhotosCard = ({ item, handleCardPress }) => {
+const PhotoCard = ({ item, handleCardPress }) => {
   return (
     <TouchableOpacity
       style={styles.container(selectedJob, item)}
@@ -36,4 +36,4 @@ const PhotosCard = ({ item, handleCardPress }) => {
   )
 }
 
-export default PhotosCard
+export default PhotoCard
