@@ -3,34 +3,31 @@ import { values } from "mobx"
 import json from "../mock/api.json"
 
 const Video = types.model("Video", {
-  "contentMeta": types.array(
-    types.model(
-    {
-      "type": types.string,
-      "contentType": types.string,
-      "availableQualities": types.array(
-        types.model(
-        {
-          "qualityDepth": types.string,
-          "fileSize": types.number,
-          "resolution": 
-          types.model({
-            "width": types.number,
-            "height": types.number
-          })
+  contentMeta: types.array(
+    types.model({
+      type: types.string,
+      contentType: types.string,
+      availableQualities: types.array(
+        types.model({
+          qualityDepth: types.string,
+          fileSize: types.number,
+          resolution: types.model({
+            width: types.number,
+            height: types.number,
+          }),
         })
       ),
-      "fileId": types.string
+      fileId: types.string,
     })
   ),
-  "numOfLikes": types.number,
-  "publishedAt": types.string,
-  "userId": types.string,
-  "textCaption": types.string,
-  "mentions": types.array(),
-  "numOfComments": types.number,
-  "id": types.string,
-  "tags": types.array()
+  numOfLikes: types.number,
+  publishedAt: types.string,
+  userId: types.string,
+  textCaption: types.string,
+  mentions: types.array(),
+  numOfComments: types.number,
+  id: types.string,
+  tags: types.array(),
 });
 
 export const Videos = types
@@ -51,7 +48,8 @@ export const Videos = types
       try {
         //fetch data
         self.setLoading(true);
-        self.setVideos(json.message.items);
+        controle.log(json.message.items)
+        //self.setVideos(json.message.items);
       } catch (error) {
         console.log("test", error);
         self.setError(error);

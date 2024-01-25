@@ -5,10 +5,12 @@ import { View, Text, TouchableOpacity, ActivityIndicator } from "react-native";
 import styles from "./videostimeline.style";
 import { COLORS } from "../../../constants";
 import VideoCard from "../../common/cards/videos/VideoCard";
-//import useFetchJobs from "../../../hook/useFetchJobs";
 import useFetchApi from "../../../hook/useFetchApi";
+import { observer, inject } from "mobx-react"
 
-const VideosTimeline = () => {
+
+const VideosTimeline = inject("videos")(observer(({videos:model}) => {
+//const VideosTimeline = () => {
   const router = useRouter();
 
   const { data, isLoading, error } = useFetchApi();
@@ -31,14 +33,14 @@ const VideosTimeline = () => {
           data?.map((photo) => (
             <VideoCard
               photo={photo}
-              key={`nearby-job-${photo.id}`}
+              key={`video-${photo.id}`}
             //handleNavigate={() => router.push(`/job-details/${photo.id}`)}
             />
           ))
         )}
       </View>
     </View>
-  );
-};
+  )
+}))
 
 export default VideosTimeline;

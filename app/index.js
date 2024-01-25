@@ -32,7 +32,7 @@ const Home = () => {
         }}
       />
       <ScrollView showsVerticalScrollIndicator={false}>
-        <Provider photos={photos}>
+        <Provider photos={photos} videos={videos}>
           <View style={{ flex: 1, padding: SIZES.medium }}>
             <Welcome />
             <PhotosTimeline />
