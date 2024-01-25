@@ -1,19 +1,18 @@
-import React from "react";
+import { View, Text, TouchableOpacity, ActivityIndicator, FlatList} from "react-native";
 import { useRouter } from "expo-router";
-import { View, Text, TouchableOpacity, ActivityIndicator } from "react-native";
+import { observer, inject } from "mobx-react"
 
 import styles from "./videostimeline.style";
-import { COLORS } from "../../../constants";
+import { COLORS, SIZES } from "../../../constants";
 import VideoCard from "../../common/cards/videos/VideoCard";
-import useFetchApi from "../../../hook/useFetchApi";
-import { observer, inject } from "mobx-react"
+//import useFetchApi from "../../../hook/useFetchApi";
+
 
 
 const VideosTimeline = inject("videos")(observer(({videos:model}) => {
-//const VideosTimeline = () => {
   const router = useRouter();
 
-  const { data, isLoading, error } = useFetchApi();
+  //const { data, isLoading, error } = useFetchApi();
 
   return (
     <View style={styles.container}>
@@ -25,18 +24,24 @@ const VideosTimeline = inject("videos")(observer(({videos:model}) => {
       </View>
 
       <View style={styles.cardsContainer}>
-        {isLoading ? (
+        {model.isLoading ? (
           <ActivityIndicator size='large' color={COLORS.primary} />
-        ) : error ? (
+        ) : model.error ? (
           <Text>Something went wrong</Text>
         ) : (
-          data?.map((photo) => (
-            <VideoCard
-              photo={photo}
-              key={`video-${photo.id}`}
-            //handleNavigate={() => router.push(`/job-details/${photo.id}`)}
-            />
-          ))
+          <FlatList
+
+            data={model.allVideos}
+            renderItem={({ item }) => (
+              <VideoCard
+                item={item}
+                //handleCardPress={}
+              />
+            )}
+            keyExtractor={item => item?.id}
+            contentContainerStyle={{ columnGap: SIZES.medium }}
+            
+          />
         )}
       </View>
     </View>

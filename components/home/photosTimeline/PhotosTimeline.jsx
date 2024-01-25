@@ -13,7 +13,7 @@ const PhotosTimeline = inject("photos")(observer(({photos:model}) => {
   return (
     <View style={styles.container}>
       <View style={styles.header}>
-        <Text style={styles.headerTitle}>Timeline photos</Text>
+        <Text style={styles.headerTitle}>Photos Timeline</Text>
         <TouchableOpacity>
           <Text style={styles.headerBtn}>Show all</Text>
         </TouchableOpacity>

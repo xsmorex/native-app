@@ -3,7 +3,6 @@ import { View, Text, TouchableOpacity, Image } from 'react-native'
 
 import styles from './photocard.style'
 
-import { checkImageURL } from "../../../../utils";
 
 const PhotoCard = ({ item, handleCardPress }) => {
   return (

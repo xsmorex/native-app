@@ -1,15 +1,14 @@
 import { View, Text, TouchableOpacity, Image } from "react-native";
 
 import styles from "./videocard.style";
-import { checkImageURL } from "../../../../utils";
 
-const VideoCard = ({ photo, handleNavigate }) => {
+const VideoCard = ({ item, handleNavigate }) => {
   return (
     <TouchableOpacity style={styles.container} onPress={handleNavigate}>
       <TouchableOpacity style={styles.logoContainer}>
         <Image
           source={{
-            uri: photo.url
+            uri: item.id
           }}
           resizeMode='contain'
           style={styles.logImage}
@@ -18,9 +17,11 @@ const VideoCard = ({ photo, handleNavigate }) => {
 
       <View style={styles.textContainer}>
         <Text style={styles.jobName} numberOfLines={1}>
-          {photo?.url}
+          {item?.numberOfLikes}
         </Text>
-
+        <Text style={styles.jobName} numberOfLines={1}>
+          {item?.publishedAt}
+        </Text>
         
       </View>
     </TouchableOpacity>
