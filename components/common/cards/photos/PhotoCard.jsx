@@ -8,11 +8,11 @@ import { checkImageURL } from "../../../../utils";
 const PhotoCard = ({ item, handleCardPress }) => {
   return (
     <TouchableOpacity
-      style={styles.container(selectedJob, item)}
+      style={styles.container(item)}
       onPress={() => handleCardPress(item)}
     >
 
-      <TouchableOpacity style={styles.logoContainer(selectedJob, item)}>
+      <TouchableOpacity style={styles.logoContainer(item)}>
         <Image
           source={{
             uri: item.url
@@ -25,7 +25,7 @@ const PhotoCard = ({ item, handleCardPress }) => {
         {item.description}
       </Text>
       <View style={styles.infoContainer}>
-        <Text style={styles.jobName(selectedJob, item)} numberOfLines={1}>
+        <Text style={styles.jobName(item)} numberOfLines={1}>
           {item.title}
         </Text>
         <Text style={styles.location}>

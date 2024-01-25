@@ -1,23 +1,15 @@
 import { View, Text, TouchableOpacity, FlatList, ActivityIndicator } from 'react-native'
 import { useRouter } from 'expo-router';
 import { Photos } from '../../../store/photos';
-import { observer } from 'mobx-react';
+import { observer, inject } from "mobx-react"
 
 import styles from './photosTimeline.style'
 import { COLORS, SIZES } from '../../../constants'
 import PhotoCard from "../../common/cards/photos/PhotoCard";
 
-
-const PhotosTimeline = () => {
+const PhotosTimeline = inject("photos")(observer(({photos:model}) => {
   const router = useRouter();
-  const model = Photos.create()
-  //model.loadPhotos()
-
-  const handleCardPress = (item) => {
-    router.push(`/job-details/${item.id}`);
-    setSelectedJob(item.id);
-  };
-
+  const models = Photos.create()
 
   return (
     <View style={styles.container}>
@@ -35,13 +27,12 @@ const PhotosTimeline = () => {
           <Text>Something went wrong</Text>
         ) : (
           <FlatList
-            
-            data={model.photos}
+
+            data={model.allPhotos}
             renderItem={({ item }) => (
               <PhotoCard
                 item={item}
-                selectedJob={selectedJob}
-                handleCardPress={handleCardPress}
+                //handleCardPress={}
               />
             )}
             keyExtractor={item => item?.id}
@@ -52,6 +43,6 @@ const PhotosTimeline = () => {
       </View>
     </View>
   )
-}
+}))
 
 export default PhotosTimeline

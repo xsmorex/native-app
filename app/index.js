@@ -6,10 +6,13 @@ import { COLORS, icons, images, SIZES } from '../constants';
 import { ScreenHeaderBtn, Welcome } from '../components';
 import PhotosTimeline from '../components/home/photosTimeline/PhotosTimeline';
 import VideosTimeline from '../components/home/videosTimeline/VideosTimeline';
+import { Photos } from '../store/photos';
+import { Provider } from 'mobx-react';
 
 const Home = () => {
 
   const router = useRouter();
+  const photos = Photos.create()
 
   return (
     <SafeAreaView style={{ flex: 1, backgroundColor: COLORS.lightWhite }}>
@@ -27,11 +30,13 @@ const Home = () => {
         }}
       />
       <ScrollView showsVerticalScrollIndicator={false}>
-        <View style={{ flex: 1, padding: SIZES.medium }}>
-          <Welcome />
-          <PhotosTimeline />
-          <VideosTimeline />
-        </View>
+        <Provider photos={photos}>
+          <View style={{ flex: 1, padding: SIZES.medium }}>
+            <Welcome />
+            <PhotosTimeline />
+            <VideosTimeline />
+          </View>
+        </Provider>
       </ScrollView>
     </SafeAreaView>
   )
