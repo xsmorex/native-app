@@ -49,7 +49,7 @@ export const Videos = types
         //fetch data
         self.setLoading(true);
         controle.log(json.message.items)
-        //self.setVideos(json.message.items);
+        self.setVideos(json.message.items);
       } catch (error) {
         console.log("test", error);
         self.setError(error);
