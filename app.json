@@ -23,7 +23,11 @@
     "updates": {
       "url": "https://u.expo.dev/6561c826-85db-4ac2-a06f-d86a0a01d208"
     },
-    "android": {},
-    "ios": {}
+    "android": {
+      "package": "app.com"
+    },
+    "ios": {
+      "bundleIdentifier": "com.xsmorex.native"
+    }
   }
 }
