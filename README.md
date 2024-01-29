@@ -2,6 +2,8 @@
 
 React Native App for cataloguing users Media.
 
+![Main Screen](preview.gif) / ![](preview.gif)
+
 
 ## 🚀 How to use
 
@@ -44,7 +46,7 @@ npx expo run:ios
 
 ## 📝 Biggest blockers resolved
 
-- https://stackoverflow.com/questions/54440051/module-not-found-error-cant-resolve-react-native-libraries-image-resolveasse - on rendering the `<Video` and any similar video libraries, which required me to go down the endless path of reinstalling my libraries, xcode, Cocoappods, in order to move to Expo dev build, which resolved the issue. Initially I started developing in Expo - due to huge issues with Cocoapods setup trying to develop natively, though ultimately I was forced to resolved and sacrificed multiple hours to figuring it out. 
+- https://stackoverflow.com/questions/54440051/module-not-found-error-cant-resolve-react-native-libraries-image-resolveasse - on rendering the `<Video/>` and any similar video libraries, which required me to go down the endless path of reinstalling my libraries, xcode, Cocoappods, in order to move to Expo dev build, which resolved the issue. Initially I started developing in Expo - due to huge issues with Cocoapods setup trying to develop natively, though ultimately I was forced to resolved and sacrificed multiple hours to figuring it out. 
 
 - Obtaining 429 error code on the clients API and mildly changing the structure of the assignment to ensure the project where I can demonstrate my skills - ie fetching the data. I decided to use an extra API to demostrate my knowledge of Axios, as well as to practice utilising MST. 
 
