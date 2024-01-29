@@ -2,7 +2,7 @@
 
 React Native App for cataloguing users Media.
 
-![Main Screen](preview.gif) / ![](preview.gif)
+![Main Screen](preview.gif)
 
 
 ## 🚀 How to use
