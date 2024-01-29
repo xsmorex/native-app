@@ -14,27 +14,37 @@ const styles = StyleSheet.create({
     backgroundColor: "#FFF",
     ...SHADOWS.medium,
     shadowColor: COLORS.white,
+
   },
-  logoContainer: {
-    width: 50,
-    height: 50,
-    backgroundColor: COLORS.white,
-    borderRadius: SIZES.medium,
-    justifyContent: "center",
-    alignItems: "center",
-  },
-  logImage: {
-    width: "70%",
-    height: "70%",
+
+  image: {
+    width: "100%",
+    height: "100%",
   },
   textContainer: {
     flex: 1,
     marginHorizontal: SIZES.medium,
+    borderRadius: 10,
+    backgroundColor: COLORS.gray2,
+    height: 200,
+    position: "relative",
   },
+
   cardName: {
-    fontSize: SIZES.medium,
+    fontSize: SIZES.large,
     fontFamily: "DMBold",
-    color: COLORS.primary,
+    color: COLORS.white,
+
+  },
+  cardText: {
+    position: "absolute",
+    flexDirection: "row",
+    width: "100%",
+    justifyContent: "space-between",
+    bottom: 10,
+    paddingLeft: SIZES.large,
+    paddingRight: SIZES.large,
+    
   },
   cardType: {
     fontSize: SIZES.small + 2,
@@ -43,15 +53,9 @@ const styles = StyleSheet.create({
     marginTop: 3,
     textTransform: "capitalize",
   },
-  backgroundVideo: {
-    position: 'absolute',
-    top: 0,
-    left: 0,
-    bottom: 0,
-    right: 0,
-    width: "70%",
-    height: "70%",
-  },
+
+
+
 });
 
 export default styles;

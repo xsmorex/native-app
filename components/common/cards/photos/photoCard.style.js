@@ -9,8 +9,9 @@ const styles = StyleSheet.create({
     justifyContent: "space-between",
     ...SHADOWS.medium,
     shadowColor: COLORS.white,
-    width: 190,
-    height: 190,
+
+    width: 290,
+    height: 290,
     alignItems: "center",
   }),
 
