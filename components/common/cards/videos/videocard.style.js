@@ -1,32 +1,43 @@
 import { StyleSheet } from "react-native";
-
 import { COLORS, SHADOWS, SIZES } from "../../../../constants";
 
-
+// const { fileId, type } = item.contentMeta[0]
+// "contentMeta": [
+//   {
+//     "type": "IMAGE",
+//     "contentType": "image/jpeg",
+//     "availableQualities": [
+//       {
+//         "qualityDepth": "MEDIUM",
+//         "fileSize": 1783669,
+//         "resolution": {
+//           "width": 3456,
+//           "height": 4096
+//         }
+//       }
+//     ],
 const styles = StyleSheet.create({
   container: {
     flex: 1,
     justifyContent: "space-between",
     alignItems: "center",
     flexDirection: "row",
-    padding: SIZES.medium,
+    padding: SIZES.small,
     borderRadius: SIZES.small,
     backgroundColor: "#FFF",
     ...SHADOWS.medium,
     shadowColor: COLORS.white,
-
   },
-
   image: {
-    width: "100%",
-    height: "100%",
+    width: '100%',
+    height: undefined,
+    //aspectRatio: 16 / 9,
   },
   textContainer: {
     flex: 1,
     marginHorizontal: SIZES.medium,
     borderRadius: 10,
     backgroundColor: COLORS.gray2,
-    height: 200,
     position: "relative",
   },
 

@@ -10,11 +10,15 @@ const VideoCard = ({ item, handleNavigate }) => {
 
   const { fileId, type } = item.contentMeta[0]
 
+  const imageWidth  = item.contentMeta[0].availableQualities[0].resolution.width
+  const imageHeight = item.contentMeta[0].availableQualities[0].resolution.height
+  const aspectRatio = imageWidth/ imageHeight
+
+  //console.log(aspectRatio)
 
   return (
     <TouchableOpacity style={styles.container} onPress={handleNavigate}>
       <View style={styles.textContainer}>
-
         {
           type == ("IMAGE") ?
             <Image
@@ -22,7 +26,8 @@ const VideoCard = ({ item, handleNavigate }) => {
                 uri: fileId
               }}
               resizeMode='contain'
-              style={styles.image}
+              //style={styles.image}
+              style={{ ...styles.image, aspectRatio }}
             /> :
             <Video
               source={{ uri: fileId }}
@@ -32,7 +37,8 @@ const VideoCard = ({ item, handleNavigate }) => {
               }}                                      // Store reference
               onBuffer={this.onBuffer}                // Callback when remote video is buffering
               onError={this.videoError}               // Callback when video cannot be loaded
-              style={styles.image}
+              //style={styles.image}
+              style={{ ...styles.image, aspectRatio }}
             />
         }
         
