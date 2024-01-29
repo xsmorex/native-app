@@ -14,7 +14,7 @@ const VideoCard = ({ item, handleNavigate }) => {
   const imageHeight = item.contentMeta[0].availableQualities[0].resolution.height
   const aspectRatio = imageWidth/ imageHeight
 
-  //console.log(aspectRatio)
+
 
   return (
     <TouchableOpacity style={styles.container} onPress={handleNavigate}>
@@ -27,18 +27,19 @@ const VideoCard = ({ item, handleNavigate }) => {
               }}
               resizeMode='contain'
               //style={styles.image}
-              style={{ ...styles.image, aspectRatio }}
+              style={ styles.image(aspectRatio) }
             /> :
             <Video
               source={{ uri: fileId }}
-              resizeMode='contain'
+              resizeMode='cover'
               ref={(ref) => {
                 this.player = ref
               }}                                      // Store reference
               onBuffer={this.onBuffer}                // Callback when remote video is buffering
               onError={this.videoError}               // Callback when video cannot be loaded
               //style={styles.image}
-              style={{ ...styles.image, aspectRatio }}
+              //style={{ ...styles.image, aspectRatio }}
+              style={ styles.image(aspectRatio) }
             />
         }
         

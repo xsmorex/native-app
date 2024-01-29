@@ -1,21 +1,19 @@
 import { StyleSheet } from "react-native";
 import { COLORS, SHADOWS, SIZES } from "../../../../constants";
 
-// const { fileId, type } = item.contentMeta[0]
-// "contentMeta": [
-//   {
-//     "type": "IMAGE",
-//     "contentType": "image/jpeg",
-//     "availableQualities": [
-//       {
-//         "qualityDepth": "MEDIUM",
-//         "fileSize": 1783669,
-//         "resolution": {
-//           "width": 3456,
-//           "height": 4096
-//         }
-//       }
-//     ],
+
+// container: (item) => ({
+
+//   borderRadius: SIZES.small,
+//   justifyContent: "space-between",
+//   ...SHADOWS.medium,
+//   shadowColor: COLORS.white,
+
+//   width: 290,
+//   height: 290,
+//   alignItems: "center",
+// }),
+
 const styles = StyleSheet.create({
   container: {
     flex: 1,
@@ -28,17 +26,21 @@ const styles = StyleSheet.create({
     ...SHADOWS.medium,
     shadowColor: COLORS.white,
   },
-  image: {
+
+  image: (aspectRatio)=> ({
     width: '100%',
+    flex: 1,
     height: undefined,
-    //aspectRatio: 16 / 9,
-  },
+    aspectRatio: aspectRatio,
+  }),
   textContainer: {
     flex: 1,
     marginHorizontal: SIZES.medium,
     borderRadius: 10,
-    backgroundColor: COLORS.gray2,
+    backgroundColor: COLORS.gray,
     position: "relative",
+    height:'50px',
+    overflow : 'hidden',
   },
 
   cardName: {
