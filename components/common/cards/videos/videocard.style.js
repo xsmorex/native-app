@@ -2,6 +2,7 @@ import { StyleSheet } from "react-native";
 
 import { COLORS, SHADOWS, SIZES } from "../../../../constants";
 
+
 const styles = StyleSheet.create({
   container: {
     flex: 1,
@@ -30,17 +31,26 @@ const styles = StyleSheet.create({
     flex: 1,
     marginHorizontal: SIZES.medium,
   },
-  jobName: {
+  cardName: {
     fontSize: SIZES.medium,
     fontFamily: "DMBold",
     color: COLORS.primary,
   },
-  jobType: {
+  cardType: {
     fontSize: SIZES.small + 2,
     fontFamily: "DMRegular",
     color: COLORS.gray,
     marginTop: 3,
     textTransform: "capitalize",
+  },
+  backgroundVideo: {
+    position: 'absolute',
+    top: 0,
+    left: 0,
+    bottom: 0,
+    right: 0,
+    width: "70%",
+    height: "70%",
   },
 });
 

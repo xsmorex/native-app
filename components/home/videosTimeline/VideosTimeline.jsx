@@ -5,14 +5,10 @@ import { observer, inject } from "mobx-react"
 import styles from "./videostimeline.style";
 import { COLORS, SIZES } from "../../../constants";
 import VideoCard from "../../common/cards/videos/VideoCard";
-import VideoPlayer from "../../common/cards/videos/VideoPlayer";
-//import useFetchApi from "../../../hook/useFetchApi";
-
-
 
 
 const VideosTimeline = inject("videos")(observer(({videos:model}) => {
-  const router = useRouter();
+  //const router = useRouter();
 
   return (
     <View style={styles.container}>
@@ -23,8 +19,6 @@ const VideosTimeline = inject("videos")(observer(({videos:model}) => {
         </TouchableOpacity>
       </View>
 
-      <VideoPlayer />
-
       <View style={styles.cardsContainer}>
         {model.isLoading ? (
           <ActivityIndicator size='large' color={COLORS.primary} />
@@ -32,7 +26,6 @@ const VideosTimeline = inject("videos")(observer(({videos:model}) => {
           <Text>Something went wrong</Text>
         ) : (
           <FlatList
-
             data={model.allVideos}
             renderItem={({ item }) => (
               <VideoCard

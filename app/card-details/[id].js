@@ -1,18 +1,10 @@
-import {
-  View,
-  Text,
-  SafeAreaView,
-  ScrollView,
-  ActivityIndicator,
-  RefreshControl,
-} from "react-native";
+import { Text } from "react-native";
 
-import { Stack, useRouter, useSearchParams } from "expo-router";
 
-const JobDetails = () => {
+const Details = () => {
   return (
-    <Text>Job details</Text>
+    <Text>Details</Text>
   )
 }
 
-export default JobDetails
+export default Details
