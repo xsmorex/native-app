@@ -4,21 +4,17 @@ import Video from 'react-native-video';
 import styles from "./videocard.style";
 
 
-
 const VideoCard = ({ item, handleNavigate }) => {
-
 
   const { fileId, type } = item.contentMeta[0]
 
-  const imageWidth  = item.contentMeta[0].availableQualities[0].resolution.width
+  const imageWidth = item.contentMeta[0].availableQualities[0].resolution.width
   const imageHeight = item.contentMeta[0].availableQualities[0].resolution.height
-  const aspectRatio = imageWidth/ imageHeight
-
-
+  const aspectRatio = imageWidth / imageHeight
 
   return (
     <TouchableOpacity style={styles.container} onPress={handleNavigate}>
-      <View style={styles.textContainer}>
+      <View style={styles.assetContainer}>
         {
           type == ("IMAGE") ?
             <Image
@@ -26,8 +22,7 @@ const VideoCard = ({ item, handleNavigate }) => {
                 uri: fileId
               }}
               resizeMode='contain'
-              //style={styles.image}
-              style={ styles.image(aspectRatio) }
+              style={styles.image(aspectRatio)}
             /> :
             <Video
               source={{ uri: fileId }}
@@ -37,18 +32,17 @@ const VideoCard = ({ item, handleNavigate }) => {
               }}                                      // Store reference
               onBuffer={this.onBuffer}                // Callback when remote video is buffering
               onError={this.videoError}               // Callback when video cannot be loaded
-              //style={styles.image}
-              //style={{ ...styles.image, aspectRatio }}
-              style={ styles.image(aspectRatio) }
+
+              style={styles.image(aspectRatio)}
             />
         }
-        
+
         <View style={styles.cardText}>
           <Text style={styles.cardName} numberOfLines={1}>
-            {item?.numOfLikes}
+          ❤️: {item?.numOfLikes}
           </Text>
           <Text style={styles.cardName} numberOfLines={1}>
-            {item?.numOfComments}
+          💬: {item?.numOfComments}
           </Text>
         </View>
       </View>

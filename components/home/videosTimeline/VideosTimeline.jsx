@@ -1,5 +1,4 @@
-import { View, Text, TouchableOpacity, ActivityIndicator, FlatList} from "react-native";
-import { useRouter } from "expo-router";
+import { View, Text, ActivityIndicator, FlatList} from "react-native";
 import { observer, inject } from "mobx-react"
 
 import styles from "./videostimeline.style";
@@ -8,15 +7,11 @@ import VideoCard from "../../common/cards/videos/VideoCard";
 
 
 const VideosTimeline = inject("videos")(observer(({videos:model}) => {
-  //const router = useRouter();
 
   return (
     <View style={styles.container}>
       <View style={styles.header}>
-        <Text style={styles.headerTitle}>Videos Timeline</Text>
-        <TouchableOpacity>
-          <Text style={styles.headerBtn}>Show all</Text>
-        </TouchableOpacity>
+        <Text style={styles.headerTitle}>Videos and Photos Timeline</Text>
       </View>
 
       <View style={styles.cardsContainer}>
@@ -35,7 +30,6 @@ const VideosTimeline = inject("videos")(observer(({videos:model}) => {
             )}
             keyExtractor={item => item?.id}
             contentContainerStyle={{ columnGap: SIZES.medium }}
-            
           />
         )}
       </View>

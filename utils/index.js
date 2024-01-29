@@ -1,3 +1,5 @@
+//checks for the validity of a URL
+
 export const checkImageURL = (url) => {
   if (!url) return false
   else {

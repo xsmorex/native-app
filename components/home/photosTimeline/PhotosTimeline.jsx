@@ -1,14 +1,13 @@
 import { View, Text, TouchableOpacity, FlatList, ActivityIndicator } from 'react-native'
-import { useRouter } from 'expo-router';
-import { Photos } from '../../../store/photos';
 import { observer, inject } from "mobx-react"
 
 import styles from './photosTimeline.style'
 import { COLORS, SIZES } from '../../../constants'
+
 import PhotoCard from "../../common/cards/photos/PhotoCard";
 
+
 const PhotosTimeline = inject("photos")(observer(({photos:model}) => {
-  const router = useRouter();
 
   return (
     <View style={styles.container}>

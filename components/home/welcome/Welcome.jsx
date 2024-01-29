@@ -5,7 +5,7 @@ import {
 import { useRouter } from 'expo-router';
 
 import styles from './welcome.style';
-import { icons, SIZES } from '../../../constants';
+import { icons } from '../../../constants';
 
 
 const Welcome = () => {
@@ -14,7 +14,7 @@ const Welcome = () => {
   return (
     <View>
       <View style={styles.container}>
-        <Text style={styles.userName}>Hello Annie</Text>
+        <Text style={styles.userName}>Hello Annie,</Text>
         <Text style={styles.welcomeMessage}>Here's your photo feed</Text>
       </View>
 
@@ -25,7 +25,6 @@ const Welcome = () => {
             placeholder='What are you looking for?'
             value=''
             onChange={() => { }}
-
           />
         </View>
         <TouchableOpacity style={styles.searchBtn} onPress={() => { }}>

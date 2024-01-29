@@ -2,18 +2,6 @@ import { StyleSheet } from "react-native";
 import { COLORS, SHADOWS, SIZES } from "../../../../constants";
 
 
-// container: (item) => ({
-
-//   borderRadius: SIZES.small,
-//   justifyContent: "space-between",
-//   ...SHADOWS.medium,
-//   shadowColor: COLORS.white,
-
-//   width: 290,
-//   height: 290,
-//   alignItems: "center",
-// }),
-
 const styles = StyleSheet.create({
   container: {
     flex: 1,
@@ -33,13 +21,13 @@ const styles = StyleSheet.create({
     height: undefined,
     aspectRatio: aspectRatio,
   }),
-  textContainer: {
+
+  assetContainer: {
     flex: 1,
-    marginHorizontal: SIZES.medium,
-    borderRadius: 10,
-    backgroundColor: COLORS.gray,
+    //marginHorizontal: SIZES.small,
+    borderRadius: SIZES.xSmall,
+    backgroundColor: COLORS.gray2,
     position: "relative",
-    height:'50px',
     overflow : 'hidden',
   },
 
@@ -54,20 +42,11 @@ const styles = StyleSheet.create({
     flexDirection: "row",
     width: "100%",
     justifyContent: "space-between",
-    bottom: 10,
-    paddingLeft: SIZES.large,
-    paddingRight: SIZES.large,
+    bottom: SIZES.xSmall,
+    paddingLeft: SIZES.xLarge,
+    paddingRight: SIZES.xLarge,
     
   },
-  cardType: {
-    fontSize: SIZES.small + 2,
-    fontFamily: "DMRegular",
-    color: COLORS.gray,
-    marginTop: 3,
-    textTransform: "capitalize",
-  },
-
-
 
 });
 
